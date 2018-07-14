@@ -5,19 +5,10 @@ using namespace std;
 
 
 int contiguousMax(vector<int>& ar){
-    vector<int> dp(ar.size());
-    dp[0] = ar[0];
-    for(int i = 1 ; i < (int)ar.size() ; i++){
-        int bmax = ar[i];
-        int sum = ar[i];
-        for(int j = i - 1 ; j >= 0 ; j--){
-            sum += ar[j];
-            if(sum > bmax){
-                bmax = sum;
-            }
-        }
-        dp[i] = max(dp[i-1], bmax);
+    int smax = 0, sum  = 0;
+    for(int i = 0 ; i < (int)ar.size() ; i++){
+        sum = (sum + ar[i] < 0 )? 0 : sum + ar[i];
+        smax = (smax < sum) ? sum : smax; 
     }
-    cout << dp.back() << endl;
-    return dp.back();
+    return smax;
 }

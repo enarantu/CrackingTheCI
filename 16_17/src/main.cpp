@@ -12,6 +12,6 @@ int main(){
 
     ar = {1, 3, -2, 5, -1, 7, -16, 1, 3};
     assert(contiguousMax(ar) == 13);
-    
+
     return 0;
 }
